@@ -1,0 +1,412 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    line-height: 1.6;
+    background: rgb(2,0,36);
+    background: linear-gradient(328deg, rgba(2,0,36,1) 0%, rgba(210,78,227,0.9949229691876751) 0%, rgba(244,173,242,1) 47%, rgba(249,249,249,1) 87%);
+    background-size: cover; /* Ensure the background covers the entire container */
+    margin: 0; /* Optional: Remove any default margin on the body */
+    padding: 0; /* Optional: Remove any default padding on the body */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Header Styles */
+
+.container h1 {
+    text-align: center;
+    color: #0e17a1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+
+}
+
+/* Batch Grid Layout */
+.batch-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.existing-batches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Batch Button Styles */
+.batch-btn {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    /* background: linear-gradient(135deg, #d66ae5,#a729b2 ); */
+    background: linear-gradient(135deg, #c042b8,#811887 );
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(183, 14, 198, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.batch-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(183, 14, 198, 0.3);
+}
+
+/* Batch Content Styles */
+.batch-content {
+    flex-grow: 1;
+    text-align: left;
+    padding-right: 40px; /* Space for three-dot menu */
+}
+
+.batch-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.batch-content p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Three-Dot Menu Styles */
+.three-dot-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.three-dot-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.three-dot-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.three-dot-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Menu Options Styles */
+.menu-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 20;
+    display: none;
+    margin-top: 5px;
+    overflow: hidden;
+    animation: menuFadeIn 0.3s ease;
+}
+
+.menu-options.show {
+    display: block;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #333333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-option:hover {
+    background-color: #f5f5f5;
+    color: #b70ec6;
+}
+
+/* Batch Actions Styles */
+.batch-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.create-batch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b70ec6;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(183, 14, 198, 0.2);
+}
+
+.create-batch-btn:hover {
+    background-color: #9012a1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(183, 14, 198, 0.3);
+}
+
+.create-batch-btn span {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Animations */
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .existing-batches {
+        grid-template-columns: 1fr;
+    }
+
+    .batch-btn {
+        flex-direction: column;
+    }
+
+    .batch-content {
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .three-dot-menu {
+        position: static;
+        align-self: flex-end;
+        margin-top: -40px;
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Form styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #0e33c6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #9012a1;
+    transform: scale(1.05);
+}
+
+.create-batch-btn {
+    background-color: #b70ec6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.create-batch-btn:hover {
+    background-color: #9012a1;
+    transform: scale(1.05);
+}
+
+
+.share-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content box */
+.share-content {
+    background-color: #fff; 
+    margin: 15% auto; 
+    padding: 20px; /* Add padding */
+    border: 1px solid #888; /* Border for contrast */
+    border-radius: 8px; /* Rounded corners */
+    width: 80%; /* Adjust the width */
+    max-width: 400px; /* Limit max width */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    text-align: center; /* Center text */
+}
+
+/* Share link text */
+#shareLink {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px; /* Add space below */
+    word-wrap: break-word; /* Break long links */
+}
+
+/* Buttons styling */
+button {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px; /* Add padding */
+    margin: 5px; /* Add spacing between buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 14px; /* Font size */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/* Close button specific style */
+button[onclick="closeSharePopup()"] {
+    background-color: #dc3545; /* Red color for close button */
+}
+
+button[onclick="closeSharePopup()"]:hover {
+    background-color: #a71d2a; /* Darker red on hover */
+}
+
+
+
+/* Spinner styles */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hidden by default */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
