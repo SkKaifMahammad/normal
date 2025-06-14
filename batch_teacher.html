@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Batch Management</title>
+    
+    <link rel="stylesheet" href="batch_teacher.css">
+</head>
+<body>
+    <div class="spinner" id="spinner"></div>
+    <div class="container">
+
+            <h1>Batch Management</h1>
+        
+        <main class="batch-grid">
+            <section class="existing-batches" id="existingBatchContainer">
+                <!-- Dynamically populated batches will appear here -->
+            </section>
+            
+            <section class="batch-actions">
+                <button class="create-batch-btn" onclick="openBatchForm()">
+                    <span>+</span> Create New Batch
+                </button>
+            </section>
+        </main>
+
+        <!-- Batch Creation Modal -->
+        <div class="modal" id="batchFormModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeBatchForm()">&times;</span>
+                <h2>Create New Batch</h2>
+                <form id="batchForm" onsubmit="submitBatchForm(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="batchName">Batch Name</label>
+                            <input type="text" id="batchName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group full-width form-actions">
+                            <button type="submit" class="submit-btn" >Create Batch</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--------- Share link ------ -->
+        <div id="sharePopup" class="share-modal">
+            <div class="share-content">
+                <p id="shareLink"></p>
+                <button id="copyButton">Copy</button>
+                <button onclick="closeSharePopup()">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="batch_teacher.js"></script>
+</body>
+</html>
